@@ -89,7 +89,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 // Builds HTML for the home page based on categories array
 // returned from the server.
 function buildAndShowHomeHTML (categories) {
-  var chosenCategoryShortName = chooseRandomCategory(categories);
   // Load home snippet page
   $ajaxUtils.sendGetRequest(homeHtmlUrl,function (homeHtml) {
 
@@ -98,7 +97,8 @@ function buildAndShowHomeHTML (categories) {
       // variable's name implies it expects.
       // var chosenCategoryShortName = ....
       
-    
+    var chosenCategory = chooseRandomCategory(categories)
+    var chosenCategoryShortName = chosenCategory.short_name;
  
       // TODO: STEP 3: Substitute {{randomCategoryShortName}} in the home html snippet with the
       // chosen category from STEP 2. Use existing insertProperty function for that purpose.
